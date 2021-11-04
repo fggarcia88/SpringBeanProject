@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class Passenger {
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	private String firstName;
 	private String lastName;
 	private String departureCity;
@@ -48,11 +48,11 @@ public class Passenger {
 		this.planesToDestination = planesToDestination;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

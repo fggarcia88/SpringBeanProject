@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert New Passenger</title>
+	</head>
+	<body>
+		<form th:object="${newPassenger}" th:action="@{/update/{id}(id=${newPassenger.id})}"method='POST'>
+			First Name: <input name="firstName" size="20" th:field="*{firstName}"> <br />
+			Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br />
+			Departure City: <input name="departureCity" size="20" th:field="*{departureCity}"><br />
+			Destination City: <input name="destinationCity" size="20" th:field="*{destinationCity}"><br />
+			Planes to Destination: <input name="planesToDestination" size="20" th:field="*{planesToDestination}"><br />
+			<input name="submit" type="submit" value="submit"/>
+		</form>
+		<a href="../viewAll">View all Passengers</a>
+	</body>
+</html>

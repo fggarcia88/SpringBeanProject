@@ -2,9 +2,34 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert New Passenger</title>
+		<script type = "text/javascript">
+			function validateInput(form) {
+				if(form.firstName.value == "") {
+					alert("Please enter a first name!");
+					return false;
+				}
+				if(form.lastName.value == "") {
+					alert("Please enter a last name!");
+					return false;
+				}
+				if(form.departureCity.value == "") {
+					alert("Please enter a departure city!");
+					return false;
+				}
+				if(form.destinationCity.value == "") {
+					alert("Please enter a destination city!");
+					return false;
+				}
+				if(form.planesToDestination.value == "" || form.planesToDestination.value == 0) {
+					alert("Please a valid plane value!");
+					return false;
+				}
+				return (true);
+			}
+		</script>
 	</head>
 	<body>
-		<form th:object="${newPassenger}" th:action="@{/update/{id}(id=${newPassenger.id})}"method='POST'>
+		<form th:object="${newPassenger}" th:action="@{/update/{id}(id=${newPassenger.id})}" name = "inputForm" onsubmit = "return validateInput(this);" method='POST'>
 			First Name: <input name="firstName" size="20" th:field="*{firstName}"> <br />
 			Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br />
 			Departure City: <input name="departureCity" size="20" th:field="*{departureCity}"><br />
